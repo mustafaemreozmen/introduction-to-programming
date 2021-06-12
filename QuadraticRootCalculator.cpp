@@ -1,42 +1,36 @@
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 int main()
 {
-	double a, b, c, delta, x1, x2; //de�i�kenler tan�mland�.
-	cout << "Ikinci Dereceden Denklemin Koklerini Bulan Program" << endl << endl;
-	cout << "(ax^2+bx+c) denkleminin katsayilarini giriniz." << endl;
-	cout << "a degeri:";
+	double a, b, c, delta, x1, x2;
+	cout << "Quadratic Equation Calculator" << endl << endl;
+	cout << "(ax^2+bx+c) Enter the Coefficients" << endl;
+	cout << "A:";
 	cin >> a;
-	cout << "b degeri:";
+	cout << "B:";
 	cin >> b;
-	cout << "c degeri:";
+	cout << "C:";
 	cin >> c;
 
-	delta = ((b*b) - (4 * a*c)); //delta hesapland�.
+	delta = ((b * b) - (4 * a * c));
 
-	if (delta > 0) //delta 0'dan b�y�kse durumu kontrol edildi.
+	if (delta > 0)
 	{
 		x1 = ((-b + sqrt(delta)) / (2 * a));
 		x2 = ((-b - sqrt(delta)) / (2 * a));
-		cout << "x1 degeriniz:" << setw(3) << x1 << endl;
-		cout << "x2 degeriniz:" << setw(3) << x2 << endl;
+		cout << "x1 value:" << setw(3) << x1 << endl;
+		cout << "x2 value:" << setw(3) << x2 << endl;
 	}
-
-	else if (delta == 0) //delta s�f�ra denkse durumu kontrol edildi.
+	else if (delta == 0)
 	{
 		x1 = ((-b) / (2 * a));
 		x2 = x1;
-		cout << "Kokler birbirine esittir. Kok:" << x1 << endl;
+		cout << "Roots are equal. Root:" << x1 << endl;
 	}
-
 	else
-		cout << "Denkleminizin reel koku bulunmamaktad�r." << endl; //iki durum da uymuyorsa reel de�ildir.
-	
-	
+		cout << "Equation has no real root." << endl;
 	system("PAUSE");
-    return 0;
+	return 0;
 }
-

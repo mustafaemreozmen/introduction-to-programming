@@ -1,15 +1,14 @@
 #include <iostream>
 using namespace std;
 
-bool KontrolFonksiyonu(double sayi) //Sayi araligini kontrol eden boolean fonksiyonu.
+bool controlFunction(double sayi) 
 {
 	if (sayi < 0 || sayi > 100)
 		return false;
-	else
-		return true;
+	return true;
 }
 
-void gecersizUyarisi() //Gecersiz araliktaki uyari mesaji fonksiyonu.
+void wrongInputError() 
 {
 	cout << "Gecersiz deger." << endl;
 	system("PAUSE");
@@ -17,148 +16,148 @@ void gecersizUyarisi() //Gecersiz araliktaki uyari mesaji fonksiyonu.
 
 int main()
 {
-	double birinciOdev;
-	double ikinciOdev;
-	double birinciKisaSinav;
-	double ikinciKisaSinav;
-	double notFinal;
-	double notVize;
-	double odevBirYuzde;
-	double odevIkiYuzde;
-	double vizeYuzde;
-	double finalYuzde;
-	double kisaSinavBirYuzde;
-	double kisaSinavIkiYuzde;
-	double toplamDersPuani;				//De�i�kenler tan�mland�
-
+	//Note from the future: Now I know the array. Hurray! But If you're not learned yet, this is the best way :P
+	double scoreFirstHomework;
+	double scoreSecondHomework;
+	double scoreFirstQuiz;
+	double scoreSecondQuiz;
+	double scoreFinal;
+	double scoreVisa;
+	double homeworkOnePercent;
+	double homeworkTwoPercent;
+	double visaPercent;
+	double finalPercent;
+	double quizOnePercent;
+	double quizTwoPercent;
+	double totalScore;				
 
 	cout << "Yilsonu Gecme Notunun Harf Karsiligini Bulan Program:" << endl << endl;
 	cout << "Vize Notunuzu Giriniz:";
-	cin >> notVize;
-	if (KontrolFonksiyonu(notVize) != true)  //Bool cebri true d�nd���nde, hata verecek blok.
+	cin >> scoreVisa;
+	if (controlFunction(scoreVisa) != true)  
 	{
-		gecersizUyarisi();
+		wrongInputError();
 		return 0;
 	}	
-	cout << "1.Odev Notunu Giriniz:";
-	cin >> birinciOdev;
-	if (KontrolFonksiyonu(birinciOdev) != true) //Bool cebri true d�nd���nde, hata verecek blok.
+	cout << "1.Homework:";
+	cin >> scoreFirstHomework;
+	if (controlFunction(scoreFirstHomework) != true) 
 	{
-		gecersizUyarisi();
+		wrongInputError();
 		return 0;
 	}	
-	cout << "2.Odev Notunu Giriniz:";
-	cin >> ikinciOdev;
-	if (KontrolFonksiyonu(ikinciOdev) != true) //Bool cebri true d�nd���nde, hata verecek blok.
+	cout << "2.Homework:";
+	cin >> scoreSecondHomework;
+	if (controlFunction(scoreSecondHomework) != true) 
 	{
-		gecersizUyarisi();
+		wrongInputError();
 		return 0;
 	}	
-	cout << "1.Kisa Sinav Notunu Giriniz:";
-	cin >> birinciKisaSinav;
-	if (KontrolFonksiyonu(birinciKisaSinav) != true) //Bool cebri true d�nd���nde, hata verecek blok.
+	cout << "1.Quiz:";
+	cin >> scoreFirstQuiz;
+	if (controlFunction(scoreFirstQuiz) != true) 
 	{
-		gecersizUyarisi();
+		wrongInputError();
 		return 0;
 	}
-	cout << "2.Kisa Sinav Notunu Giriniz:";
-	cin >> ikinciKisaSinav;
-	if (KontrolFonksiyonu(birinciKisaSinav) != true) //Bool cebri true d�nd���nde, hata verecek blok.
+	cout << "2.Quiz:";
+	cin >> scoreSecondQuiz;
+	if (controlFunction(scoreSecondQuiz) != true) 
 	{
-		gecersizUyarisi();
+		wrongInputError();
 		return 0;
 	}	
-	cout << "Final Notunu Giriniz:";
-	cin >> notFinal;
-	if (KontrolFonksiyonu(notFinal) != true) //Bool cebri true d�nd���nde, hata verecek blok.
+	cout << "Final:";
+	cin >> scoreFinal;
+	if (controlFunction(scoreFinal) != true) 
 	{
-		gecersizUyarisi();
+		wrongInputError();
 		return 0;
 	}
 	system("@cls||clear");
-	cout << "Vizenin yil ici notunuza etkisi yuzde kactir?:";
-	cin >> vizeYuzde;
-	if (KontrolFonksiyonu(vizeYuzde) != true) //Bool cebri true dondugunde, hata verecek blok.
+	cout << "Visa Percent?:";
+	cin >> visaPercent;
+	if (controlFunction(visaPercent) != true) 
 	{
-		gecersizUyarisi();
+		wrongInputError();
 		return 0;
 	}
-	vizeYuzde /= 100;	
-	cout << "1. Odevin yil ici notunuza etkisi yuzde kactir?:";
-	cin >> odevBirYuzde;
-	if (KontrolFonksiyonu(odevBirYuzde) != true) //Bool cebri true dondugunde, hata verecek blok.
+	visaPercent /= 100;	
+	cout << "1. Homework Percent?:";
+	cin >> homeworkOnePercent;
+	if (controlFunction(homeworkOnePercent) != true) 
 	{
-		gecersizUyarisi();
+		wrongInputError();
 		return 0;
 	}
-	odevBirYuzde /= 100;
-	cout << "2. Odevin yil ici notunuza etkisi yuzde kactir?:";
-	cin >> odevIkiYuzde;
-	if (KontrolFonksiyonu(odevIkiYuzde) != true) //Bool cebri true dondugunde, hata verecek blok.
+	homeworkOnePercent /= 100;
+	cout << "2. Homework Percent?:";
+	cin >> homeworkTwoPercent;
+	if (controlFunction(homeworkTwoPercent) != true) 
 	{
-		gecersizUyarisi();
+		wrongInputError();
 		return 0;
 	}
-	odevIkiYuzde /= 100;
-	cout << "1. Kisa sinavin yil ici notunuza etkisi yuzde kactir?:";
-	cin >> kisaSinavBirYuzde;
-	if (KontrolFonksiyonu(kisaSinavBirYuzde) != true) //Bool cebri true dondugunde, hata verecek blok.
+	homeworkTwoPercent /= 100;
+	cout << "1. Quiz Percent?:";
+	cin >> quizOnePercent;
+	if (controlFunction(quizOnePercent) != true) 
 	{
-		gecersizUyarisi();
+		wrongInputError();
 		return 0;
 	}
-	kisaSinavBirYuzde /= 100;
-	cout << "2. Kisa sinavin yil ici notunuza etkisi yuzde kactir?:";
-	cin >> kisaSinavIkiYuzde;
-	if (KontrolFonksiyonu(kisaSinavIkiYuzde) != true) //Bool cebri true dondugunde, hata verecek blok.
+	quizOnePercent /= 100;
+	cout << "2. Quiz Percent?:";
+	cin >> quizTwoPercent;
+	if (controlFunction(quizTwoPercent) != true)
 	{
-		gecersizUyarisi();
+		wrongInputError();
 		return 0;
 	}
-	kisaSinavIkiYuzde /= 100;
-	cout << "Finalin yil ici notunuza etkisi yuzde kactir?:";
-	cin >> finalYuzde;
-	if (KontrolFonksiyonu(finalYuzde) != true) //Bool cebri true dondugunde, hata verecek blok.
+	quizTwoPercent /= 100;
+	cout << "Final Percent?:";
+	cin >> finalPercent;
+	if (controlFunction(finalPercent) != true)
 	{
-		gecersizUyarisi();
+		wrongInputError();
 		return 0;
 	}
-	finalYuzde /= 100;
+	finalPercent /= 100;
 	
 
 	system("@cls||clear");
-	cout << "Vizeden gelen puan�n�z:";
-	notVize = (notVize * vizeYuzde); //Y�zde ile �arp�l�p ayn� de�i�kene atand�.
-	cout << notVize << endl;
-	cout << "�devlerden gelen puan�n�z:";
-	birinciOdev = ((birinciOdev*odevBirYuzde)+(ikinciOdev*odevIkiYuzde));
-	cout << birinciOdev << endl;
-	cout << "K�sa S�navlardan gelen puan�n�z:";
-	birinciKisaSinav = ((birinciKisaSinav*kisaSinavBirYuzde) + (ikinciKisaSinav*kisaSinavIkiYuzde));
-	cout << birinciKisaSinav << endl;
-	cout << "Finalden gelen puaniniz:";
-	notFinal = (notFinal*finalYuzde);
-	cout << notFinal << endl;
-	cout << "Toplam ders notunuz:";
-	toplamDersPuani = notFinal + birinciOdev + birinciKisaSinav + notVize;
-	cout << toplamDersPuani << endl;
+	cout << "Visa:";
+	scoreVisa = (scoreVisa * visaPercent); 
+	cout << scoreVisa << endl;
+	cout << "Homework:";
+	scoreFirstHomework = ((scoreFirstHomework*homeworkOnePercent)+(scoreSecondHomework*homeworkTwoPercent));
+	cout << scoreFirstHomework << endl;
+	cout << "Quiz:";
+	scoreFirstQuiz = ((scoreFirstQuiz*quizOnePercent) + (scoreSecondQuiz*quizTwoPercent));
+	cout << scoreFirstQuiz << endl;
+	cout << "Final:";
+	scoreFinal = (scoreFinal*finalPercent);
+	cout << scoreFinal << endl;
+	cout << "Total Year-End Score:";
+	totalScore = scoreFinal + scoreFirstHomework + scoreFirstQuiz + scoreVisa;
+	cout << totalScore << endl;
 
-	if (toplamDersPuani <= 100 && toplamDersPuani >= 90) //Harf notu kontrolu yapildi.
-		cout << "Gecme Notunuz AA." << endl;
-	else if (toplamDersPuani <=89 && toplamDersPuani >= 85)
-		cout << "Gecme Notunuz BA." << endl;
-	else if (toplamDersPuani <= 84 && toplamDersPuani >= 80)
-		cout << "Gecme Notunuz BB." << endl;
-	else if (toplamDersPuani <= 79 && toplamDersPuani >= 75)
-		cout << "Gecme Notunuz CB." << endl;
-	else if (toplamDersPuani <= 74 && toplamDersPuani >= 65)
-		cout << "Gecme Notunuz CC." << endl;
-	else if (toplamDersPuani <= 64 && toplamDersPuani >= 58)
-		cout << "Gecme Notunuz DC." << endl;
-	else if (toplamDersPuani <= 57 && toplamDersPuani >= 50)
-		cout << "Gecme Notunuz DD."<< endl;
+	if (totalScore <= 100 && totalScore >= 90) 
+		cout << "AA." << endl;
+	else if (totalScore <=89 && totalScore >= 85)
+		cout << "BA." << endl;
+	else if (totalScore <= 84 && totalScore >= 80)
+		cout << "BB." << endl;
+	else if (totalScore <= 79 && totalScore >= 75)
+		cout << "CB." << endl;
+	else if (totalScore <= 74 && totalScore >= 65)
+		cout << "CC." << endl;
+	else if (totalScore <= 64 && totalScore >= 58)
+		cout << "DC." << endl;
+	else if (totalScore <= 57 && totalScore >= 50)
+		cout << "DD."<< endl;
 	else
-		cout << "Gecme Notunuz FF. Kald�n�z." << endl;
+		cout << "FF." << endl;
 	
 	system("PAUSE");
     return 0;
