@@ -6,60 +6,61 @@ using namespace std;
 
 int main()
 {
-	
 	int n;
-	char tus;
-	int secim = 1; //Degisken atamalari yapildi.
+	char keyPress;
+	int choice = 1; 
 
-	cout << "Lutfen diziniz icin boyut degerini giriniz." << endl;
+	cout << "Enter array size:" << endl;
 	cin >> n;
-	int* sayilar = new int[n]; //Dizi tanimlandi.
-	srand(time(0)); //Random, time'a baglandi.
+	int *numbers = new int[n]; 
+	srand(time(NULL));			   
 	for (int i = 0; i < n; i++)
-		sayilar[i] = rand() % 10;  //Dongu ile dizi dolduruldu.
-	
-	bool cikis = false; 
-	while (!cikis)
+		numbers[i] = rand() % 10;
+
+	bool exit = false;
+	while (!exit)
 	{
 		for (int i = 0; i < n; i++)
 		{
-			if (i == secim-1)
-				cout << "---> "; //Imlec basildi.
+			if (i == choice - 1)
+				cout << "---> "; 
 			else
 				cout << setw(6);
 
-			cout << sayilar[i] << endl; //dizi basildi.
+			cout << numbers[i] << endl; 
 		}
-		
-	cout << endl << endl << "a(A) yukari gider" << endl << "d(D) asagi gider" << endl << "c(C) programi sonlandirir";
-	tus = _getch();		//de�er girdisi alindi.
-	switch (tus) //kontrol yapildi.
-	{
+
+		cout << endl
+			 << endl
+			 << "a(A) up" << endl
+			 << "d(D) down" << endl
+			 << "c(C) exit";
+		keyPress = _getch(); 
+		switch (keyPress)	
+		{
 		case 'A':
 		case 'a':
-		secim--;
-		break;
+			choice--;
+			break;
 		case 'D':
 		case 'd':
-		secim++;
-		break;
+			choice++;
+			break;
 		case 'c':
 		case 'C':
-		return 0;
-		break;
+			return 0;
+			break;
 		default:
-		break;
-	}
-		if (secim > n) //n'inci terim sonrasi imlec basa dondu.
-			secim = 1;
+			break;
+		}
+		if (choice > n)
+			choice = 1;
+		else if (choice < 1)
+			choice = n;
 
-		else if (secim < 1) //1'inci terim oncesi imlec sona dondu.
-			secim = n;
-
-		system("@cls||clear"); //ekran basimlarda yenilendi.
+		system("@cls||clear");
 	}
-		
-	delete sayilar;
+
+	delete numbers;
 	return 0;
 }
-
